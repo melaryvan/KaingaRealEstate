@@ -29,7 +29,6 @@ namespace KaingaRealEstate
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblRequired = new System.Windows.Forms.Label();
             this.lblPleaseSelectAnOption = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnDeleteCategory = new System.Windows.Forms.Button();
@@ -43,17 +42,6 @@ namespace KaingaRealEstate
             this.txtCategoryDescription = new System.Windows.Forms.TextBox();
             this.lblSuburbName = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lblRequired
-            // 
-            this.lblRequired.AutoSize = true;
-            this.lblRequired.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequired.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblRequired.Location = new System.Drawing.Point(194, 114);
-            this.lblRequired.Name = "lblRequired";
-            this.lblRequired.Size = new System.Drawing.Size(17, 19);
-            this.lblRequired.TabIndex = 103;
-            this.lblRequired.Text = "*";
             // 
             // lblPleaseSelectAnOption
             // 
@@ -177,7 +165,6 @@ namespace KaingaRealEstate
             this.ClientSize = new System.Drawing.Size(643, 366);
             this.Controls.Add(this.txtCategoryDescription);
             this.Controls.Add(this.lblSuburbName);
-            this.Controls.Add(this.lblRequired);
             this.Controls.Add(this.lblPleaseSelectAnOption);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnDeleteCategory);
@@ -199,8 +186,6 @@ namespace KaingaRealEstate
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblRequired;
         private System.Windows.Forms.Label lblPleaseSelectAnOption;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnDeleteCategory;

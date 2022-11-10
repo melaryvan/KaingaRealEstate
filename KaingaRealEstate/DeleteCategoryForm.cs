@@ -79,5 +79,10 @@ namespace KaingaRealEstate
                 LoadCategories();
             }
         }
+
+        private void lblRequired_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
