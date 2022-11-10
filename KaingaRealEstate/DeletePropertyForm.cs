@@ -59,6 +59,11 @@ namespace KaingaRealEstate
             cboProperty.Items.Clear();
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void cboProperty_SelectedIndexChanged(object sender, EventArgs e)
         {
             {

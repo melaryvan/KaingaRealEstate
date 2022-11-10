@@ -67,7 +67,23 @@ namespace KaingaRealEstate
             LoadBuyers();
         }
 
-        private void cboBuyer_SelectedIndexChanged(object sender, EventArgs e)
+        /*private void cboBuyer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lstOfferDetails.Items.Clear();
+            string aRow = cboBuyer.SelectedItem.ToString();
+            string[] subs = aRow.Split(' ');
+            aBuyerID = Convert.ToInt32(subs[0]);
+            cmBuyer.Position = DC.buyerView.Find(aBuyerID);
+            DataRow drBuyer = DC.dtBuyer.Rows[cmBuyer.Position];
+            txtBuyerID.Text = drBuyer["buyerID"].ToString();
+            txtLastName.Text = drBuyer["lastName"].ToString();
+            txtFirstName.Text = drBuyer["firstName"].ToString();
+            txtEmailAddress.Text = drBuyer["emailAddress"].ToString();
+            txtPhoneNumber.Text = drBuyer["phoneNumber"].ToString();
+            LoadOffers();
+        }*/
+
+        private void cboBuyer_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             lstOfferDetails.Items.Clear();
             string aRow = cboBuyer.SelectedItem.ToString();
@@ -83,11 +99,45 @@ namespace KaingaRealEstate
             LoadOffers();
         }
 
-        private void cboBuyer_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
 
+        private void lstOfferDetails_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstOfferDetails.SelectedIndex == 0)
+            {
+
+            }
+            else
+            {
+                string aRow = lstOfferDetails.SelectedItem.ToString();
+                string[] subs = aRow.Split('\t');
+                aPropertyID = Convert.ToInt32(subs[2]);
+            }
         }
 
+        private void btnRemoveOffer_Click(object sender, EventArgs e)
+        {
+            if (lstOfferDetails.SelectedIndex == 0) // cannot click it if the category is not selected
+            {
+                return;
+            }
+            else
+            {
+                object[] keys = new object[2];   // Create an array for the key values to find.
+                keys[0] = aBuyerID; // Set the values of the keys to find.
+                keys[1] = aPropertyID; // Set the values of the keys to find.
+                DataRow removeOfferRow = DC.dtOffer.Rows.Find(keys);
+
+                if (MessageBox.Show("Are you sure to remove this offer?", "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    removeOfferRow.Delete();
+                    DC.UpdateOffer();
+                    MessageBox.Show("Offer removed successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearFields();
+                    LoadBuyers();
+                }
+
+            }
+        }
         private void LoadOffers()
         {
             DataRow drBuyer = DC.dtBuyer.Rows[cmBuyer.Position];
@@ -97,7 +147,9 @@ namespace KaingaRealEstate
             foreach (DataRow drOffer in drOfferDetails)
             {
                 DataRow drProperty = drOffer.GetParentRow(DC.dtOffer.ParentRelations["PROPERTY_OFFER"]);
-
+                double amount = Convert.ToDouble(drOffer["offerAmount"]);
+                string anOfferAmount = $"{amount:C2}";
+                lstOfferDetails.Items.Add(drOffer["status"] + "\r\t" + anOfferAmount + "\r\t" + drOffer["propertyID"] + "\r\t" + drProperty["propertyDescription"]);
             }
         }
       

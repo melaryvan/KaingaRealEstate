@@ -59,6 +59,7 @@ namespace KaingaRealEstate
             this.lstOfferDetails.ScrollAlwaysVisible = true;
             this.lstOfferDetails.Size = new System.Drawing.Size(490, 118);
             this.lstOfferDetails.TabIndex = 115;
+            this.lstOfferDetails.SelectedIndexChanged += new System.EventHandler(this.lstOfferDetails_SelectedIndexChanged);
             // 
             // lblRequired
             // 
@@ -100,6 +101,7 @@ namespace KaingaRealEstate
             this.btnRemoveOffer.TabIndex = 108;
             this.btnRemoveOffer.Text = "Remove Offer";
             this.btnRemoveOffer.UseVisualStyleBackColor = true;
+            this.btnRemoveOffer.Click += new System.EventHandler(this.btnRemoveOffer_Click);
             // 
             // cboBuyer
             // 

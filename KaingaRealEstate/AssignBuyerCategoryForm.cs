@@ -121,7 +121,7 @@ namespace KaingaRealEstate
                 {
                     MessageBox.Show("The category is already assigned to the buyer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
+                
             }
         }
 
