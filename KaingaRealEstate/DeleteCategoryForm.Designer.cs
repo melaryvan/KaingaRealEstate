@@ -41,6 +41,7 @@ namespace KaingaRealEstate
             this.lblDeleteCategory = new System.Windows.Forms.Label();
             this.txtCategoryDescription = new System.Windows.Forms.TextBox();
             this.lblSuburbName = new System.Windows.Forms.Label();
+            this.lblRequired = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblPleaseSelectAnOption
@@ -158,11 +159,23 @@ namespace KaingaRealEstate
             this.lblSuburbName.TabIndex = 104;
             this.lblSuburbName.Text = "Category Description:";
             // 
+            // lblRequired
+            // 
+            this.lblRequired.AutoSize = true;
+            this.lblRequired.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblRequired.Location = new System.Drawing.Point(198, 114);
+            this.lblRequired.Name = "lblRequired";
+            this.lblRequired.Size = new System.Drawing.Size(17, 19);
+            this.lblRequired.TabIndex = 106;
+            this.lblRequired.Text = "*";
+            // 
             // DeleteCategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(643, 366);
+            this.Controls.Add(this.lblRequired);
             this.Controls.Add(this.txtCategoryDescription);
             this.Controls.Add(this.lblSuburbName);
             this.Controls.Add(this.lblPleaseSelectAnOption);
@@ -198,5 +211,6 @@ namespace KaingaRealEstate
         private System.Windows.Forms.Label lblDeleteCategory;
         private System.Windows.Forms.TextBox txtCategoryDescription;
         private System.Windows.Forms.Label lblSuburbName;
+        private System.Windows.Forms.Label lblRequired;
     }
 }
